@@ -23,7 +23,12 @@ public class SignInSceneScript : MonoBehaviour
 
     public void SignInButton()
     {
-        Debug.Log("Ласкаво просимо в сім'ю, очєрєдной");
+        Application.LoadLevel(3);
+    }
+
+    public void BackButton()
+    {
+        Application.LoadLevel(0);
     }
 
     // Update is called once per frame
