@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
 using UnityEngine.UI;
@@ -15,6 +17,9 @@ public class RegisterLogic : MonoBehaviour
     public Button buttonRegister;
     public Text textOutput;
     public ColorBlock colorBlock;
+   
+    private string reg = @"^[\P{L}\p{IsBasicLatin}]+$";
+
 
   
     // Start is called before the first frame update
@@ -29,18 +34,32 @@ public class RegisterLogic : MonoBehaviour
     //react on click Register Button
     public void RegisterButton()
     {
-        //Check chy vsi polya zapovneni
-        /*if (string.IsNullOrEmpty(inputEmail.text) && string.IsNullOrEmpty(inputLogin.text) &&
-            string.IsNullOrEmpty(inputPassword.text))
-        {*/
-            StartCoroutine(RequestRegister());
-        /*}
+        
+        if (inputEmail.text.Length < 40)
+        {
+            if (inputLogin.text.Length < 10 && Regex.IsMatch(inputLogin.text, reg, RegexOptions.IgnoreCase)) 
+            {
+                if (inputPassword.text.Length < 10 && Regex.IsMatch(inputPassword.text, reg, RegexOptions.IgnoreCase))
+                {
+                    StartCoroutine(RequestRegister());
+
+                }
+                else
+                {
+                    textOutput.text = "password must contain only a-z and 1-9 and be shorter as 10";
+                }
+            }
+            else
+            {
+                textOutput.text = "login must contain only a-z and 1-9 and be shorter as 10";
+            }
+        }
         else
         {
-            textOutput.text = "Fill all field";
-            Debug.Log("Fill all fields");
+            textOutput.text = "email must be shorter";
+        }
 
-        }*/
+       
     }
 
     // Update is called once per frame
@@ -84,7 +103,9 @@ public class RegisterLogic : MonoBehaviour
             case "Registered":
                 Debug.Log("User's register is successfully");
                 PlayerPrefs.SetInt("LoginStatus", 1);
-                //Application.LoadLevel(2);
+                PlayerPrefs.SetString("Login", inputLogin.text);
+                PlayerPrefs.SetString("Password", inputPassword.text);
+                Application.LoadLevel(3);
                 break;
             case "EmailError":
                 textOutput.text = "This email already exist";

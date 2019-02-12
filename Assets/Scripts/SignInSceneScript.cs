@@ -7,11 +7,13 @@ public class SignInSceneScript : MonoBehaviour
 {
     public InputField login_Input;
 
-    public InputField passwod_Input;
+    public InputField password_Input;
 
     public Button buttonSign;
 
     public ColorBlock colorblockSign;
+
+    public Text textServer;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,7 @@ public class SignInSceneScript : MonoBehaviour
 
     public void SignInButton()
     {
-        Application.LoadLevel(3);
+        StartCoroutine(LoginRequest());
     }
 
     public void BackButton()
@@ -34,7 +36,7 @@ public class SignInSceneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (login_Input.text == "" || passwod_Input.text == "")
+        if (login_Input.text == "" || password_Input.text == "")
         {
             buttonSign.enabled = false;
             colorblockSign.normalColor = Color.grey;
@@ -49,4 +51,35 @@ public class SignInSceneScript : MonoBehaviour
             buttonSign.colors = colorblockSign;    
         }
     }
+    //Send login request to server
+    private IEnumerator LoginRequest(){
+        WWWForm wwwForm = new WWWForm();
+        wwwForm.AddField("Command", "Login");
+        wwwForm.AddField("Login", login_Input.text);
+        wwwForm.AddField("Password", password_Input.text);
+        WWW www = new WWW("https://oldishere.000webhostapp.com/",wwwForm);
+        yield return www;
+        Debug.Log(www.error);
+        //Obrabatue answer servera
+        switch (www.text)
+        {
+            case "Success":
+                PlayerPrefs.SetInt("LoginStatus",1);
+                PlayerPrefs.SetString("Login", login_Input.text);
+                PlayerPrefs.SetString("Password", password_Input.text);
+
+                Application.LoadLevel(3);
+                break;
+            case "Login is not exist":
+                textServer.text = "Login is not exist";
+                Debug.Log("Login is not exist");
+                break;
+            case "Password is wrong":
+                textServer.text = "Password is wrong";
+                Debug.Log("Password is wrong");
+                break;
+        }
+       
+    }
+    
 }
