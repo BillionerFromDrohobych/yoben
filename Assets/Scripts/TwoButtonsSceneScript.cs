@@ -13,13 +13,13 @@ public class TwoButtonsSceneScript : MonoBehaviour
 
     public void SignUpButton()
     {
-                Application.LoadLevel(1);
+                Application.LoadLevel(2);
 
     }
 
     public void SignInButton()
     {
-        Application.LoadLevel(2);
+        Application.LoadLevel(3);
     }
 
     // Update is called once per frame

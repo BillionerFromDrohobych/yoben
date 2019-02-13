@@ -30,7 +30,7 @@ public class SignInSceneScript : MonoBehaviour
 
     public void BackButton()
     {
-        Application.LoadLevel(0);
+        Application.LoadLevel(1);
     }
 
     // Update is called once per frame
@@ -68,7 +68,7 @@ public class SignInSceneScript : MonoBehaviour
                 PlayerPrefs.SetString("Login", login_Input.text);
                 PlayerPrefs.SetString("Password", password_Input.text);
 
-                Application.LoadLevel(3);
+                Application.LoadLevel(4);
                 break;
             case "Login is not exist":
                 textServer.text = "Login is not exist";

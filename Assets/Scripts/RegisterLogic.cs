@@ -105,7 +105,7 @@ public class RegisterLogic : MonoBehaviour
                 PlayerPrefs.SetInt("LoginStatus", 1);
                 PlayerPrefs.SetString("Login", inputLogin.text);
                 PlayerPrefs.SetString("Password", inputPassword.text);
-                Application.LoadLevel(3);
+                Application.LoadLevel(4);
                 break;
             case "EmailError":
                 textOutput.text = "This email already exist";
