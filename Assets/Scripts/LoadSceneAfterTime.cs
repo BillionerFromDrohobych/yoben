@@ -18,7 +18,14 @@ public class LoadSceneAfterTime : MonoBehaviour
 
         if (timeElapsed > delayBeforeLoading)
         {
-            SceneManager.LoadScene(sceneNameToLoad);
+           // if (PlayerPrefs.GetInt("LoginStatus") == 0)
+           // {
+                SceneManager.LoadScene(sceneNameToLoad);
+            /*}
+            else
+            {
+                
+            }*/
         }
     }
 }
