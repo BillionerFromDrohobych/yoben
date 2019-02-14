@@ -261,7 +261,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Sign In
+  m_Text: '
+
+'
 --- !u!222 &464180228
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1388,7 +1390,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.875, y: 29}
-  m_SizeDelta: {x: 160, y: 35}
+  m_SizeDelta: {x: 90, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058383481
 MonoBehaviour:
