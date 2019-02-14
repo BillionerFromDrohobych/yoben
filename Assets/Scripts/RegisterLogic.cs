@@ -113,6 +113,9 @@ public class RegisterLogic : MonoBehaviour
                 textOutput.text = "This email already exist";
                 Debug.Log("This email already exist");
                 break;
+            case "":
+                textOutput.text = "Problem with Internet Connection";
+                break;
         }
     }
 }

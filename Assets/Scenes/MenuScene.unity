@@ -923,6 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87bae08a96116df42a9cc4c32e164d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneDictionary: DictionaryLevel
 --- !u!1 &1968930279
 GameObject:
   m_ObjectHideFlags: 0
