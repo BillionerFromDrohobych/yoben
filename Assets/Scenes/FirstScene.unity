@@ -372,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delayBeforeLoading: 1.5
   sceneNameToLoad: TwoButtonsScene
+  sceneNameToReisterLoad: MenuScene
 --- !u!4 &1206861570
 Transform:
   m_ObjectHideFlags: 0

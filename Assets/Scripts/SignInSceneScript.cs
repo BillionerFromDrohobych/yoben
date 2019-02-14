@@ -14,6 +14,8 @@ public class SignInSceneScript : MonoBehaviour
     public ColorBlock colorblockSign;
 
     public Text textServer;
+
+    private int hash { get; set; }
     // Start is called before the first frame update
     void Start()
     {
@@ -54,9 +56,10 @@ public class SignInSceneScript : MonoBehaviour
     //Send login request to server
     private IEnumerator LoginRequest(){
         WWWForm wwwForm = new WWWForm();
+        hash = password_Input.text.GetHashCode();
         wwwForm.AddField("Command", "Login");
         wwwForm.AddField("Login", login_Input.text);
-        wwwForm.AddField("Password", password_Input.text);
+        wwwForm.AddField("Password", hash);
         WWW www = new WWW("https://oldishere.000webhostapp.com/",wwwForm);
         yield return www;
         Debug.Log(www.error);

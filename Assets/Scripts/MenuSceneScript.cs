@@ -22,6 +22,7 @@ public class MenuSceneScript : MonoBehaviour
 
     public void ProfileButton()
     {
+        Application.LoadLevel(5);
         Debug.Log("Profile opened");
     }
 

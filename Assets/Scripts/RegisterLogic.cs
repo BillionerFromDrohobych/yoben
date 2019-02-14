@@ -17,6 +17,7 @@ public class RegisterLogic : MonoBehaviour
     public Button buttonRegister;
     public Text textOutput;
     public ColorBlock colorBlock;
+    private int hash { get; set; }
    
     private string reg = @"^[\P{L}\p{IsBasicLatin}]+$";
 
@@ -81,11 +82,12 @@ public class RegisterLogic : MonoBehaviour
     //Send request to the server for register
     private IEnumerator RequestRegister()
     {
+        hash = inputPassword.text.GetHashCode();
         WWWForm wwwForm = new WWWForm();
         wwwForm.AddField("Command","Register");
         wwwForm.AddField("Email",inputEmail.text);
         wwwForm.AddField("Login",inputLogin.text);
-        wwwForm.AddField("Password",inputPassword.text);
+        wwwForm.AddField("Password",hash);
         WWW www = new WWW("https://oldishere.000webhostapp.com/",wwwForm);
         yield return www;
         Debug.Log(www.error);
