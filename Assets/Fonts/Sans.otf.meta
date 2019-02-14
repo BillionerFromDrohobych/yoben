@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aeb3696bca785194a9ae55d4cd164245
+guid: 25e8bd830cc660947b89f96fa60321a9
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Arya
+  fontName: Sans
   fontNames:
-  - Arya
+  - Sans
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
