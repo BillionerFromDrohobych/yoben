@@ -7,7 +7,8 @@ public class LoadSceneAfterTime : MonoBehaviour
     private float delayBeforeLoading = 2.0f;
     [SerializeField]
     private string sceneNameToLoad;
-    
+    [SerializeField]
+    private string sceneNameToReisterLoad;
     private float timeElapsed;
 
 
@@ -18,14 +19,14 @@ public class LoadSceneAfterTime : MonoBehaviour
 
         if (timeElapsed > delayBeforeLoading)
         {
-           // if (PlayerPrefs.GetInt("LoginStatus") == 0)
-           // {
-                SceneManager.LoadScene(sceneNameToLoad);
-            /*}
-            else
+           if (PlayerPrefs.GetInt("LoginStatus") == 0)
             {
-                
-            }*/
+                SceneManager.LoadScene(sceneNameToLoad);
+            }
+            else
+           {
+               SceneManager.LoadScene(sceneNameToReisterLoad);
+           }
         }
     }
 }
