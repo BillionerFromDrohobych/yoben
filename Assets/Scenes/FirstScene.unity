@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45b12fb870fbb04e8ab73a1ca26025c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayBeforeLoading: 2
+  delayBeforeLoading: 1.5
   sceneNameToLoad: TwoButtonsScene
 --- !u!4 &1206861570
 Transform:
