@@ -7,9 +7,14 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
+          <e p="DictionaryRoflLogic.cs" t="Include" />
+          <e p="LevelMenu.cs" t="Include" />
+          <e p="LoadSceneAfterTime.cs" t="Include" />
           <e p="MenuSceneScript.cs" t="Include" />
+          <e p="Profile.cs" t="Include" />
           <e p="RegisterLogic.cs" t="Include" />
           <e p="SignInSceneScript.cs" t="Include" />
+          <e p="TestLogic.cs" t="Include" />
           <e p="TwoButtonsSceneScript.cs" t="Include" />
         </e>
       </e>
