@@ -6,8 +6,8 @@ using UnityEngine.Experimental.Rendering;
 public class TestLogic : MonoBehaviour
 {
     private string[] testData { get; set; }
-    private string[] testOriginal { get; set; }
-    private string[] testTranslate { get; set; }
+    public string[] testOriginal { get; set; }
+    public string[] testTranslate { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,6 @@ public class TestLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     private IEnumerator RequestfortheTest()
@@ -34,15 +33,14 @@ public class TestLogic : MonoBehaviour
         {
             Debug.Log("Internet problems");
         }
-        else{
-         Debug.Log(www.text);
-        testData = www.text.Split('+');
-        Debug.Log(testData[0]);
-        Debug.Log(testData[1]);
-        testOriginal = testData[0].Split(';');
-        testTranslate = testData[1].Split(';');
-        
-
+        else
+        {
+            Debug.Log(www.text);
+            testData = www.text.Split('+');
+            Debug.Log(testData[0]);
+            Debug.Log(testData[1]);
+            testOriginal = testData[0].Split(';');
+            testTranslate = testData[1].Split(';');
         }
-}
+    }
 }

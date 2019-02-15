@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainRoflDictionary.unity
     guid: b1d758c4a218dce4db424f604569cc98
+  - enabled: 1
+    path: Assets/Scenes/TestScene.unity
+    guid: 3c80f3ef9cf0e2846899424a09c35096
   m_configObjects: {}
