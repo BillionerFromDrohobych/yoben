@@ -1181,10 +1181,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1504570961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54d483d0c66076e4cac5b5dd69c87c89, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ec17a07b1db89d479d5cdd4ba192e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: MainRoflDictionary
   level1Button: {fileID: 89011509}
   level2Button: {fileID: 1915142447}
   level3Button: {fileID: 512670163}
