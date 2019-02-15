@@ -12,13 +12,18 @@ public class LoadSceneAfterTime : MonoBehaviour
     private float timeElapsed;
 
 
-
+    
     void Update()
     {
-        timeElapsed += Time.deltaTime;
+       
+            timeElapsed += Time.deltaTime;
 
+
+        
+        
         if (timeElapsed > delayBeforeLoading)
         {
+           
            if (PlayerPrefs.GetInt("LoginStatus") == 0)
             {
                 SceneManager.LoadScene(sceneNameToLoad);

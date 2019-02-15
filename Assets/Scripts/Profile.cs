@@ -59,12 +59,17 @@ public class Profile : MonoBehaviour
         wwwForm.AddField("Command", "Rank");
         www = new WWW("https://oldishere.000webhostapp.com/",wwwForm);
         yield return www;
-
-        serverDictionatyRank = www.text.Split(';');
-        Debug.Log(www.text);
-        Debug.Log(serverDictionatyRank[0]);
-        dictionaryrankfield.text = serverDictionatyRank[0];
-        grammaryrankfield1.text = serverDictionatyRank[1];
-
+        if (www.text == "")
+        {
+           Debug.Log("Internet problems"); 
+        }
+        else
+        {
+            serverDictionatyRank = www.text.Split(';');
+            Debug.Log(www.text);
+            Debug.Log(serverDictionatyRank[0]);
+            dictionaryrankfield.text = serverDictionatyRank[0];
+            grammaryrankfield1.text = serverDictionatyRank[1];
+        }
     }
 }

@@ -81,6 +81,9 @@ public class SignInSceneScript : MonoBehaviour
                 textServer.text = "Password is wrong";
                 Debug.Log("Password is wrong");
                 break;
+            case "":
+                textServer.text = "Problem with Internet Connection";
+                break;
         }
        
     }
