@@ -67,6 +67,7 @@ public class DictionaryLevelScript : MonoBehaviour
 
     public void Level1()
     {
+        Debug.Log("sa");
         PlayerPrefs.SetInt("LevelDictionaryBegin", 1);
         SceneManager.LoadScene(sceneToLoad);
     }
