@@ -85,7 +85,7 @@ public class LevelMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("LevelDictionaryBegin", 31);
         SceneManager.LoadScene(sceneToLoad);
-    }
+    }    
 
     private IEnumerator RankRequest()
     {
