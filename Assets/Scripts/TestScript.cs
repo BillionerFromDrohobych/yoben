@@ -122,6 +122,7 @@ public class TestScript : MonoBehaviour
             answerButtonC.gameObject.SetActive(false);
             answerButtonD.gameObject.SetActive(false);
             questionText.gameObject.SetActive(false);
+            backButton.gameObject.SetActive(false);
             panel.gameObject.SetActive(true);
         }
 
@@ -133,6 +134,7 @@ public class TestScript : MonoBehaviour
             answerButtonC.gameObject.SetActive(false);
             answerButtonD.gameObject.SetActive(false);
             questionText.gameObject.SetActive(false);
+            backButton.gameObject.SetActive(false);
             panel.gameObject.SetActive(true);
             panel.GetComponent<Image>().color = Color.green;
             buttonText.text = "To menu";
