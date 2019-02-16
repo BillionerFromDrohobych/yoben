@@ -7,14 +7,17 @@ using Slider = UnityEngine.UI.Slider;
 public class TestScript : MonoBehaviour
 {
     public int randomQuestion { get; set; }
-    public bool stopTest { get; set; }
-    public float trueAnswers { get; set; }
+    public bool stopTestWrongAnswer { get; set; }
+    public bool endTest { get; set; }
+    private float trueAnswers { get; set; }
     private float NumberOfQuestions { get; set; }
     public Slider testProgressBar;
     public Button answerButtonA;
     public Button answerButtonB;
     public Button answerButtonC;
     public Button answerButtonD;
+    public Button backButton;
+    public Text buttonText;
     public GameObject panel;
     public QuestionList[] questions;
     public Text[] answersText;
@@ -28,13 +31,16 @@ public class TestScript : MonoBehaviour
         NumberOfQuestions = 10;
         trueAnswers = 0;
         testProgressBar.value = CalculateTestprogress();
-        stopTest = false;
+        stopTestWrongAnswer = false;
+        endTest = false;
+
         testProgressBar.gameObject.SetActive(false);
         answerButtonA.gameObject.SetActive(false);
         answerButtonB.gameObject.SetActive(false);
         answerButtonC.gameObject.SetActive(false);
         answerButtonD.gameObject.SetActive(false);
         panel.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
     }
 
     public void StartButton()
@@ -45,7 +51,18 @@ public class TestScript : MonoBehaviour
         answerButtonB.gameObject.SetActive(true);
         answerButtonC.gameObject.SetActive(true);
         answerButtonD.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(true);
         QuestionGenerate();
+    }
+
+    public void BackButton()
+    {
+        Application.LoadLevel(6);
+    }
+
+    public void ExitFromTestButton()
+    {
+        Application.LoadLevel(6);
     }
 
     public void QuestionGenerate()
@@ -79,12 +96,15 @@ public class TestScript : MonoBehaviour
             //Тут має бути анімація, коли чєл відповідає правильно
             trueAnswers++;
             Debug.Log("True answers: " + trueAnswers);
-            Debug.Log("Result: " + CalculateTestprogress());
+            if (trueAnswers == 10)
+            {
+                endTest = true;
+            }
         }
         else
         {
             //Тут має бути анімація, коли чєл відповідає неправильно
-            stopTest = true;
+            stopTestWrongAnswer = true;
         }
 
         questionList.RemoveAt(randomQuestion);
@@ -94,7 +114,7 @@ public class TestScript : MonoBehaviour
     private void Update()
     {
         testProgressBar.value = CalculateTestprogress();
-        if (stopTest)
+        if (stopTestWrongAnswer)
         {
             testProgressBar.gameObject.SetActive(false);
             answerButtonA.gameObject.SetActive(false);
@@ -104,16 +124,24 @@ public class TestScript : MonoBehaviour
             questionText.gameObject.SetActive(false);
             panel.gameObject.SetActive(true);
         }
+
+        if (endTest)
+        {
+            testProgressBar.gameObject.SetActive(false);
+            answerButtonA.gameObject.SetActive(false);
+            answerButtonB.gameObject.SetActive(false);
+            answerButtonC.gameObject.SetActive(false);
+            answerButtonD.gameObject.SetActive(false);
+            questionText.gameObject.SetActive(false);
+            panel.gameObject.SetActive(true);
+            panel.GetComponent<Image>().color = Color.green;
+            buttonText.text = "To menu";
+        }
     }
 
     public float CalculateTestprogress()
     {
         return trueAnswers / NumberOfQuestions;
-    }
-
-    public void BackButton()
-    {
-        Application.LoadLevel(6);
     }
 }
 
