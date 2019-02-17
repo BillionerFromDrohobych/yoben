@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 //using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Experimental.UIElements;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Debug = UnityEngine.Debug;
@@ -15,9 +16,12 @@ public class RegisterLogic : MonoBehaviour
     public InputField inputLogin;
     public InputField inputPassword;
     public Button buttonRegister;
+    public Button backButton;
     public Text textOutput;
     public ColorBlock colorBlock;
     private int hash { get; set; }
+    [SerializeField] private string sceneToLoad;
+    [SerializeField] private string sceneToBack;
    
     private string reg = @"^[\P{L}\p{IsBasicLatin}]+$";
 
@@ -61,6 +65,11 @@ public class RegisterLogic : MonoBehaviour
         }
 
        
+    }
+
+    public void BackButton()
+    {
+        SceneManager.LoadScene(sceneToBack);
     }
 
     // Update is called once per frame
@@ -107,7 +116,7 @@ public class RegisterLogic : MonoBehaviour
                 PlayerPrefs.SetInt("LoginStatus", 1);
                 PlayerPrefs.SetString("Login", inputLogin.text);
                 PlayerPrefs.SetString("Password", inputPassword.text);
-                Application.LoadLevel(4);
+                SceneManager.LoadScene(sceneToLoad);
                 break;
             case "EmailError":
                 textOutput.text = "This email already exist";

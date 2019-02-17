@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Button = UnityEngine.UI.Button;
 using Slider = UnityEngine.UI.Slider;
@@ -25,6 +26,8 @@ public class TestScript : MonoBehaviour
     public Button startButton;
     public List<object> questionList;
     public QuestionList currentQuestion;
+    [SerializeField] private string sceneToLoad;
+    
 
     private void Start()
     {
@@ -57,12 +60,12 @@ public class TestScript : MonoBehaviour
 
     public void BackButton()
     {
-        Application.LoadLevel(6);
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void ExitFromTestButton()
     {
-        Application.LoadLevel(6);
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     public void QuestionGenerate()

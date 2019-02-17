@@ -9,6 +9,7 @@ public class DictionaryLevelScript : MonoBehaviour
     private string[] currentUserRank { get; set; }
     [SerializeField] private string sceneToLoad;
     [SerializeField] private string sceneToBack;
+    [SerializeField] private string sceneToTest;
 
     private WWW www;
     private int current;
@@ -106,7 +107,7 @@ public class DictionaryLevelScript : MonoBehaviour
     public void TestButton()
     {
         PlayerPrefs.SetInt("TestRank", 1);
-        Application.LoadLevel(8);
+        SceneManager.LoadScene(sceneToTest);
     }
     
 
