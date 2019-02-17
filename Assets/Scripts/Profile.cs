@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 //using UnityEditor.Experimental.U2D;
 //using UnityEditorInternal.Profiling.Memory.Experimental;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +14,8 @@ public class Profile : MonoBehaviour
     public Image runbar1;
     public Text grammaryrankfield1;
     public Text loginText;
-  
+    public string SceneNameToGo;    
+    public string SceneNameToLogOut;    
     private float currentDictionary { get; set; }
     private float currentGrammary { get; set; }
 
@@ -27,8 +29,14 @@ public class Profile : MonoBehaviour
         currentGrammary = 0;
         currentDictionary = 0;
         loginText.text = PlayerPrefs.GetString("Login");
-
+        
     }
+
+    public void MenuLevel()
+    {
+        SceneManager.LoadScene(SceneNameToGo);
+    }
+   
 
     // Update is called once per frame
     void Update()
@@ -41,6 +49,7 @@ public class Profile : MonoBehaviour
        {
            currentGrammary += speed * Time.deltaTime;
        }
+               
 
         runbar.GetComponent<Image>().fillAmount = currentDictionary / 100;
         runbar1.GetComponent<Image>().fillAmount = currentGrammary / 100;
@@ -49,7 +58,8 @@ public class Profile : MonoBehaviour
     public void LogoutButton()
     {
         PlayerPrefs.SetInt("LoginStatus", 0);
-        Application.LoadLevel(1);
+        SceneManager.LoadScene(SceneNameToLogOut);
+            
     }
 
     private IEnumerator RequestforRank()

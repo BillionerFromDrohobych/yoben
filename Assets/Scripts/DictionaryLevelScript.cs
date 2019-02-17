@@ -25,7 +25,7 @@ public class DictionaryLevelScript : MonoBehaviour
 
     void Update()
     {
-        if (current > 11)
+       /* if (current > 11)
         {
             level2Button.enabled = true;
         }
@@ -59,7 +59,7 @@ public class DictionaryLevelScript : MonoBehaviour
         else
         {
             level5Button.enabled = false;
-        }
+        }*/
 
         testButton.enabled = true;
         level1Button.enabled = true;
