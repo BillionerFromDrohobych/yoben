@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SignInSceneScript : MonoBehaviour
 {
     public InputField login_Input;
+
+    public string sceneNameToLoadAfterSignIn;
+    public string sceneNameToBack;
 
     public InputField password_Input;
 
@@ -16,6 +20,7 @@ public class SignInSceneScript : MonoBehaviour
     public Text textServer;
 
     private int hash { get; set; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +37,7 @@ public class SignInSceneScript : MonoBehaviour
 
     public void BackButton()
     {
-        Application.LoadLevel(1);
+        SceneManager.LoadScene(sceneNameToBack);
     }
 
     // Update is called once per frame
@@ -43,35 +48,35 @@ public class SignInSceneScript : MonoBehaviour
             buttonSign.enabled = false;
             colorblockSign.normalColor = Color.grey;
             buttonSign.colors = colorblockSign;
-
-
         }
         else
         {
             buttonSign.enabled = true;
             colorblockSign.normalColor = Color.white;
-            buttonSign.colors = colorblockSign;    
+            buttonSign.colors = colorblockSign;
         }
     }
+
     //Send login request to server
-    private IEnumerator LoginRequest(){
+    private IEnumerator LoginRequest()
+    {
         WWWForm wwwForm = new WWWForm();
         hash = password_Input.text.GetHashCode();
         wwwForm.AddField("Command", "Login");
         wwwForm.AddField("Login", login_Input.text);
         wwwForm.AddField("Password", hash);
-        WWW www = new WWW("https://oldishere.000webhostapp.com/",wwwForm);
+        WWW www = new WWW("https://oldishere.000webhostapp.com/", wwwForm);
         yield return www;
         Debug.Log(www.error);
         //Obrabatue answer servera
         switch (www.text)
         {
             case "Success":
-                PlayerPrefs.SetInt("LoginStatus",1);
+                PlayerPrefs.SetInt("LoginStatus", 1);
                 PlayerPrefs.SetString("Login", login_Input.text);
                 PlayerPrefs.SetString("Password", password_Input.text);
 
-                Application.LoadLevel(4);
+                SceneManager.LoadScene(sceneNameToLoadAfterSignIn);
                 break;
             case "Login is not exist":
                 textServer.text = "Login is not exist";
@@ -85,7 +90,5 @@ public class SignInSceneScript : MonoBehaviour
                 textServer.text = "Problem with Internet Connection";
                 break;
         }
-       
     }
-    
 }

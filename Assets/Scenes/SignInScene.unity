@@ -464,7 +464,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0010452, y: 177.2}
+  m_AnchoredPosition: {x: -0.0010452, y: 170}
   m_SizeDelta: {x: 280.79, y: 28.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &704026183
@@ -624,8 +624,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.875, y: -168}
-  m_SizeDelta: {x: 110.15, y: 28.5}
+  m_AnchoredPosition: {x: 15.241, y: -171}
+  m_SizeDelta: {x: 61.269, y: 26.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &866515681
 MonoBehaviour:
@@ -754,7 +754,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 93.7}
+  m_AnchoredPosition: {x: 0, y: 85}
   m_SizeDelta: {x: 185, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1121947100
@@ -976,6 +976,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   login_Input: {fileID: 1606160359}
+  sceneNameToLoadAfterSignIn: ProfileScene
+  sceneNameToBack: TwoButtonsScene
   password_Input: {fileID: 1121947100}
   buttonSign: {fileID: 2058383481}
   colorblockSign:
@@ -1102,7 +1104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 128.2}
+  m_AnchoredPosition: {x: 0, y: 120}
   m_SizeDelta: {x: 185, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1606160359
@@ -1469,7 +1471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.875, y: 29}
+  m_AnchoredPosition: {x: 0.875, y: 15.000005}
   m_SizeDelta: {x: 90, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2058383481
