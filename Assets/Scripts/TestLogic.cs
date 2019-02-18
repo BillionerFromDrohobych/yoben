@@ -29,7 +29,7 @@ public class TestLogic : MonoBehaviour
         WWW www = new WWW("https://oldishere.000webhostapp.com/", wwwForm);
         yield return www;
 
-        if (www.text == "")
+        if (www.text == "")    
         {
             Debug.Log("Internet problems");
         }

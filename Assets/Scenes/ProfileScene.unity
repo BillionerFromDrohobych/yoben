@@ -597,9 +597,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runbar: {fileID: 1094107611}
-  dictionaryrankfield: {fileID: 1983287505}
+  dictionaryrankfield: {fileID: 81315737}
   runbar1: {fileID: 1229907571}
-  grammaryrankfield1: {fileID: 81315737}
+  grammaryrankfield1: {fileID: 1983287505}
   loginText: {fileID: 1969549040}
   SceneNameToGo: DictionaryLevel
   SceneNameToLogOut: TwoButtonsScene
