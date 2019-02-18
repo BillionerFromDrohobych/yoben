@@ -15,7 +15,8 @@ public class Profile : MonoBehaviour
     public Text grammaryrankfield1;
     public Text loginText;
     public string SceneNameToGo;    
-    public string SceneNameToLogOut;    
+    public string SceneNameToLogOut;
+    public string SceneNameToCredits;
     private float currentDictionary { get; set; }
     private float currentGrammary { get; set; }
 
@@ -35,6 +36,11 @@ public class Profile : MonoBehaviour
     public void MenuLevel()
     {
         SceneManager.LoadScene(SceneNameToGo);
+    }
+
+    public void CreditsButton()
+    {
+        SceneManager.LoadScene(SceneNameToCredits);
     }
    
 
