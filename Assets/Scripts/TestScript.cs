@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,6 +14,7 @@ public class TestScript : MonoBehaviour
     public bool endTest { get; set; }
     private float trueAnswers { get; set; }
     private float NumberOfQuestions { get; set; }
+    private string levelPrefsCheck;
     public Slider testProgressBar;
     public Button answerButtonA;
     public Button answerButtonB;
@@ -26,6 +29,7 @@ public class TestScript : MonoBehaviour
     public Button startButton;
     public List<object> questionList;
     public QuestionList currentQuestion;
+    private int LevelCheck = 0;
     [SerializeField] private string sceneToLoad;
     
 
@@ -101,6 +105,24 @@ public class TestScript : MonoBehaviour
             Debug.Log("True answers: " + trueAnswers);
             if (trueAnswers == 10)
             {
+                try
+                {
+                    levelPrefsCheck = "LevelCheck" + PlayerPrefs.GetInt("TestRank");
+                    LevelCheck = PlayerPrefs.GetInt(levelPrefsCheck);
+
+                }
+                catch
+                {
+                    
+                }
+
+                if (LevelCheck == 0)
+                {
+                    StartCoroutine(RequestForUp());
+                    PlayerPrefs.SetInt(levelPrefsCheck, 1);
+                        
+                }
+
                 endTest = true;
             }
         }
@@ -147,6 +169,23 @@ public class TestScript : MonoBehaviour
     public float CalculateTestprogress()
     {
         return trueAnswers / NumberOfQuestions;
+    }
+
+    private IEnumerator RequestForUp()
+    {
+        WWWForm wwwForm = new WWWForm();
+        wwwForm.AddField("Login", PlayerPrefs.GetString("Login"));
+        wwwForm.AddField("Command", "UpRank");
+        WWW www = new WWW("https://oldishere.000webhostapp.com/", wwwForm);
+        yield return www;
+        if (www.text == "")
+        {
+            Debug.Log("Internet problems");
+        }
+        else
+        {
+            Debug.Log(www.text);
+        }
     }
 }
 

@@ -78,8 +78,8 @@ public class Profile : MonoBehaviour
             serverDictionatyRank = www.text.Split(';');
             Debug.Log(www.text);
             Debug.Log(serverDictionatyRank[0]);
-            dictionaryrankfield.text = serverDictionatyRank[0];
-            grammaryrankfield1.text = serverDictionatyRank[1];
+            dictionaryrankfield.text = serverDictionatyRank[0]+"%";
+            //grammaryrankfield1.text = serverDictionatyRank[1]+"%";
         }
     }
 }
